@@ -55,10 +55,6 @@ class RegisterContainer extends Component {
     register = async () => {
         this.setState({ errorMessage: null, isLoading: true });
         const { email, password, name } = this.state;
-        console.log(email);
-        console.log(name);
-        console.log(password);
-
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
@@ -77,7 +73,7 @@ class RegisterContainer extends Component {
 
         firebase.auth().onAuthStateChanged(user => {
             if (user) {
-                console.log(user.uid, user.email);
+                // console.log(user.uid, user.email);
                 this.getRef()
                     .child("friends")
                     .push({
@@ -89,7 +85,7 @@ class RegisterContainer extends Component {
                     const resetAction = StackActions.reset({
                         index: 0,
                         actions: [
-                            NavigationActions.navigate({ routeName: 'Chat'})
+                            NavigationActions.navigate({ routeName: 'Friend'})
                         ]
                     })
                     this.props.navigation.dispatch(resetAction)

@@ -1,0 +1,6 @@
+{
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+    "files.associations": {
+        "readline.h": "c"
+    }
+}

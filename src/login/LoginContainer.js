@@ -36,7 +36,7 @@ class LoginContainer extends Component {
        const email =  await AsyncStorage.getItem("email");
        const password =  await AsyncStorage.getItem("password");
        this.setState({email : email, password : password});
-       this.signInWithAccount ; 
+       this.signInWithAccount() ; 
 
     }
      signInWithAccount = async () => {
@@ -65,15 +65,16 @@ class LoginContainer extends Component {
             this.setState({
               loading: false
             });
+            const resetAction = StackActions.reset({
+                index: 0,
+                actions: [
+                    NavigationActions.navigate({ routeName: 'Friend'})
+                ]
+            })
+            this.props.navigation.dispatch(resetAction)
           }
         });
-        const resetAction = StackActions.reset({
-                    index: 0,
-                    actions: [
-                        NavigationActions.navigate({ routeName: 'Chat'})
-                    ]
-                })
-                this.props.navigation.dispatch(resetAction)
+
     
       
     }
