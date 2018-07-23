@@ -13,6 +13,7 @@ const Chat = createStackNavigator({
 
 
 export const RootStack = createStackNavigator({
+    // Chat : {screen : ChatContainer},
     Login : {screen : LoginContainer},
     Register : {screen : RegisterContainer},
     Friend : {screen : FriendContainer},

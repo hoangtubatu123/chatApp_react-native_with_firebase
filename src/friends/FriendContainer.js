@@ -46,7 +46,7 @@ class FriendContainer extends Component {
                   });
               });
               this.setState({isLoading : false, friends : items})
-              console.log(items);
+            //   console.log(items);
         }
          
     )
@@ -71,7 +71,9 @@ class FriendContainer extends Component {
                                 <Text style = {{fontSize : 20, fontFamily : FONTS.MAIN_FONT_BOLD}}>{"Danh sách bạn bè"}</Text>
                             )}
                             renderItem={({ item }) => (
-                                <TouchableOpacity activeOpacity={0.8} style={{ flexDirection: "row" , marginTop : 20}}>
+                                <TouchableOpacity activeOpacity={0.8} style={{ flexDirection: "row" , marginTop : 20}}
+                                 onPress = {() => this.props.navigation.navigate("Chat", {friend : item})}
+                                >
                                     <Icon name="FontAwesome|user" size={20} />
                                     <Text style={{ fontSize: 15, fontFamily: FONTS.MAIN_FONT }}>{item.name + "/"}
                                         <Text style = {{fontSize : 15, fontFamily : FONTS.MAIN_FONT_BOLD}}>
